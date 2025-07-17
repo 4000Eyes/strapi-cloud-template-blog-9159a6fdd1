@@ -1,6 +1,16 @@
 module.exports = [
   'strapi::logger',
   'strapi::errors',
+    {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      origin: ['http://localhost:3000', 'https://youdra-ai-backend-dot-dreav-ai.wl.r.appspot.com/'], // ✅ Add your allowed frontend domains
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      headers: '*',
+      keepHeadersOnError: true,
+    },
+  },
   'strapi::security',
   'strapi::cors',
   'strapi::poweredBy',
